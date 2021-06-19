@@ -28,9 +28,9 @@ namespace BusinessLayer.Concrete
             return _headingDal.List();
         }
 
-        public List<Heading> GetListByWriter()
+        public List<Heading> GetListByWriter(int id)
         {
-            return _headingDal.FilterList(x => x.WriterID == 4); //gönderilen değere göre yazarın açtığı başlıkları görüntüler
+            return _headingDal.FilterList(x => x.WriterID == id); //gönderilen değere göre yazarın açtığı başlıkları görüntüler
         }
 
         public void HeadingAddBL(Heading heading)

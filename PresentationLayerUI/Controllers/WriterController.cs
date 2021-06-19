@@ -46,7 +46,8 @@ namespace PresentationLayerUI.Controllers
                     Request.Files[0].SaveAs(Server.MapPath(url));
                     writer.WriterImage = "/Images/" + _filename;
                 }
-                wm.WriterAddBL(writer);
+               
+                wm.WriterAddBL(writer);  
                 return RedirectToAction("Index");
             }
             else

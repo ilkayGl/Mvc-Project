@@ -36,6 +36,7 @@ namespace PresentationLayerUI.Controllers
             ValidationResult result = categoryvalidator.Validate(p);
             if (result.IsValid)
             {
+                p.CategoryStatus = true;
                 cm.CategoryAddBL(p);
                 return RedirectToAction("Index");
             }
@@ -66,6 +67,7 @@ namespace PresentationLayerUI.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category p)
         {
+            p.CategoryStatus = true;
             cm.CategoryUpdateBL(p);
             return RedirectToAction("Index");
         }

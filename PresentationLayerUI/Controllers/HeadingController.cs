@@ -44,6 +44,7 @@ namespace PresentationLayerUI.Controllers
         public ActionResult AddHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToLongTimeString());//gelen tarihe bugünün kısa tarih eklenir b
+            heading.HeadingStatus = true;
             hm.HeadingAddBL(heading);
             return RedirectToAction("Index");
         }

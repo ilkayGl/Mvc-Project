@@ -13,6 +13,8 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
+        MvcKampContext c = new MvcKampContext();
 
         // GET: WriterPanel
         public ActionResult WriterProfile()
@@ -20,10 +22,14 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-            var valus = hm.GetListByWriter();
+
+            p = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var valus = hm.GetListByWriter(writeridinfo);
             return View(valus);
+
         }
 
         [HttpGet]
@@ -42,8 +48,10 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string writermailinfo = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterID).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToLongTimeString());//gelen tarihe bugünün kısa tarih eklenir b
-            heading.WriterID = 4;
+            heading.WriterID = writeridinfo;
             heading.HeadingStatus = true;
             hm.HeadingAddBL(heading);
             return RedirectToAction("MyHeading", "WriterPanel");
@@ -67,6 +75,7 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
         [HttpPost]
         public ActionResult EditWriterHeading(Heading p)
         {
+            p.HeadingStatus = true;
             hm.HeadingUpdateBL(p);
             return RedirectToAction("MyHeading");
         }

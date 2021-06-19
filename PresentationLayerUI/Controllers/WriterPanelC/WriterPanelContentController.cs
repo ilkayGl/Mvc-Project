@@ -12,10 +12,14 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
     {
         ContentManager cm = new ContentManager(new EfContentDal());
         // GET: WriterPanelContent
-        public ActionResult MyContent()
+        public ActionResult MyContent(string p)
         {
-            var contentvalue = cm.GetListByWriter();
+            MvcKampContext c = new MvcKampContext();
+            p = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var contentvalue = cm.GetListByWriter(writeridinfo);
             return View(contentvalue);
+            //sisteme kiminle otantike olursam onun bilgilerini bana vericektir
         }
     }
 }
