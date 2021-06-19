@@ -1,0 +1,5 @@
+packages/
+*.jpg
+bin/
+obj/
+Properties/ 

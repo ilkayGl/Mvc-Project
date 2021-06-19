@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<h1 class="text-center" style="color:brown">İstatistik Sayfası</h1>
+
+<br />
+<br />
+
+<div class="container-fluid  justify-content-center">
+
+
+    <div class="card text-white bg-primary mb-3 mr-3 float-left " style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h4>Toplam Kategori Sayısı</h4></div>
+        <div class="card-body text-center">
+
+            <p class="card-text "><h1>@ViewBag.dgr1</h1></p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary mb-3 mr-3 float-left" style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h5>Yazılım Kategorisi Başlık Sayısı</h5></div>
+        <div class="card-body text-center">
+            <p class="card-text"><h1>@ViewBag.dgr2</h1></p>
+        </div>
+    </div>
+    <div class="card text-white bg-success mb-3 mr-3 float-left" style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h5>Adında A Harfi Geçen Yazar Sayısı</h5></div>
+        <div class="card-body text-center">
+            <p class="card-text"><h1>@ViewBag.dgr3</h1></p>
+        </div>
+    </div>
+    <div class="card text-white bg-danger mb-3 mr-3 float-left" style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h5>En Fazla Başlığa Sahip Kategori Adı</h5></div>
+        <div class="card-body text-center">
+            <p class="card-text"><h1>@ViewBag.dgr4</h1></p>
+        </div>
+    </div>
+    <div class="card text-white bg-warning mb-3 mr-3 float-left" style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h5>Status True-False Aralarındaki Fark</h5></div>
+        <div class="card-body text-center">
+            <p class="card-text"><h1>@ViewBag.dgr5</h1></p>
+        </div>
+    </div>
+    <div class="card text-white bg-cyan mb-3 mr-3 float-left" style="max-width: 18rem; height: 13rem;">
+        <div class="card-header"><h4>Toplam Yazar Sayısıdır</h4></div>
+        <div class="card-body text-center">
+            <p class="card-text"><h1>@ViewBag.dgr6</h1></p>
+        </div>
+    </div>
+
+</div>
