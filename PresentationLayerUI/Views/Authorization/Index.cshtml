@@ -1,0 +1,68 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Kategori İşlemleri</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kategori İşlemleri Veri Tablosu</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="" data-toggle="tooltip" title="">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>#</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Kullanıcı Mail</th>
+                        <th>Yetki</th>
+                        <th>Status</th>
+                        <th>Pasif Yap</th>
+                        <th>Yetkisini Değiştir</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th>@item.AdminID</th>
+                            <th>@item.AdminUserName</th>
+                            <td>@item.AdminMail</td>
+                            <td>@item.AdminRole</td>
+                            <td>Aktif</td>
+                            <td><a href="#/@item.AdminID" class="btn btn-danger toastrBtn2">Pasif Yap</a></td>
+                            <td><a href="#/@item.AdminID" class="btn btn-success toastrBtn1">Yetkisini Değiştri</a></td>
+
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+<a href="#" class="btn btn-outline-info">Yeni Admin Tanımla</a>
+

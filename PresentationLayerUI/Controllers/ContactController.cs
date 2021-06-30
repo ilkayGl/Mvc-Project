@@ -30,31 +30,32 @@ namespace PresentationLayerUI.Controllers
 
         public PartialViewResult MessageListMenu()
         {
+            string session = (string)Session["AdminMail"];
             var contact = cm.GetList().Count();
             ViewBag.contact = contact;
 
-            var sendMail = mm.GetListSendbox().Count();
+            var sendMail = mm.GetListSendbox(session).Count();
             ViewBag.sendMail = sendMail;
 
-            var receiverMail = mm.GetListInbox().Count();
+            var receiverMail = mm.GetListInbox(session).Count();
             ViewBag.receiverMail = receiverMail;
 
-            var draftMail = mm.GetListDraft().Count(); //GetListSendbox().Where(m => m.IsDraft == true).Count();
+            var draftMail = mm.GetListDraft(session).Count(); //GetListSendbox().Where(m => m.IsDraft == true).Count();
             ViewBag.draftMail = draftMail;
 
             var trashMail = mm.GetListTrash().Count();
             ViewBag.trashMail = trashMail;
 
-            var readMail = mm.GetReadList().Count;
+            var readMail = mm.GetReadList(session).Count;
             ViewBag.readMail = readMail;
 
-            var unReadMail = mm.GetUnReadList().Count;
+            var unReadMail = mm.GetUnReadList(session).Count;
             ViewBag.unReadMail = unReadMail;
 
-            var importantMail = mm.GetListImportant().Count();
+            var importantMail = mm.GetListImportant(session).Count();
             ViewBag.importantMail = importantMail;
 
-            var spamMail = mm.GetListSpam().Count();
+            var spamMail = mm.GetListSpam(session).Count();
             ViewBag.spamMail = spamMail;
 
 

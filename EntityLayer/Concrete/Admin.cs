@@ -28,4 +28,3 @@ namespace EntityLayer.Concrete
 
     }
 }
-//hash leme ile parola kaydetmeyi unutma ÖDEV

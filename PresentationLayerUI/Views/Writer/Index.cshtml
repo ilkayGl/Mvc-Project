@@ -22,16 +22,18 @@
     <section class="content">
 
         <div class="card card-solid">
+
             <div class="card-body pb-0">
+
                 <div class="row d-flex align-items-stretch">
                     @foreach (var item in Model)
                     {
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                             <div class="card bg-light">
                                 <div class="card-header text-muted border-bottom-0">
                                     @item.Title
                                 </div>
-                                <div class="card-body pt-0">
+                                <div class="card-body pt-0 ">
                                     <div class="row">
                                         <div class="col-7">
                                             <h2 class="lead"><b>@item.WriterName @item.WriterSurname</b></h2>
@@ -42,7 +44,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-5 text-center ">
-                                            <img src="@item.WriterImage" alt="Resim" class="img-circle img-fluid ">
+                                            <img src="@item.WriterImage" alt="Resim" class="img-circle img-fluid img-responsive img-bordered">
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +63,9 @@
                         </div>
                     }
                 </div>
+
             </div>
+
         </div>
         <a href="/Writer/AddWriter" class="btn btn-info">Yeni Yazar Ekle</a>
     </section>

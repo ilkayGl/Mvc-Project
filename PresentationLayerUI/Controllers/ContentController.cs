@@ -1,9 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PresentationLayerUI.Controllers
@@ -18,6 +15,16 @@ namespace PresentationLayerUI.Controllers
         {
             return View();
         }
+
+        //MvcKampContext c = new MvcKampContext();
+        public ActionResult GetAllContent(string p)
+        {
+            var values = cm.GetListContent(p);
+          
+            //var values = c.Contents.ToList();
+            return View(values.ToList());
+        }
+
 
         public ActionResult ContentByHeading(int id)
         {

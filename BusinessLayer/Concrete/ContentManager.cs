@@ -53,5 +53,18 @@ namespace BusinessLayer.Concrete
         {
             return _contentDal.FilterList(x => x.WriterID == id); //session 
         }
+
+        public List<Content> GetListContent(string p)
+        {
+            if (string.IsNullOrEmpty(p))
+            {
+                return _contentDal.List();
+            }
+            else
+            {
+                return _contentDal.FilterList(x => x.ContentValue.Contains(p));
+            }
+
+        }
     }
 }

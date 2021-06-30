@@ -23,29 +23,29 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x => x.MessageID == id);
         }
 
-        public List<Message> GetListDraft()
+        public List<Message> GetListDraft(string session)
         {
-            return _messageDal.FilterList(x => x.IsDraft == true);
+            return _messageDal.FilterList(x => x.IsDraft == true && x.SenderMail == session);
         }
 
-        public List<Message> GetListImportant()
+        public List<Message> GetListImportant(string session)
         {
-            return _messageDal.FilterList(x => x.IsImportant == true && x.ReceiverMail == "ilkaygl@outlook.com");
+            return _messageDal.FilterList(x => x.IsImportant == true && x.ReceiverMail == session);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string session)
         {
-            return _messageDal.FilterList(x => x.ReceiverMail == "ilkaygl@outlook.com");
+            return _messageDal.FilterList(x => x.ReceiverMail == session);
         }
 
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string session)
         {
-            return _messageDal.FilterList(x => x.SenderMail == "ilkaygl@outlook.com");
+            return _messageDal.FilterList(x => x.SenderMail == session);
         }
 
-        public List<Message> GetListSpam()
+        public List<Message> GetListSpam(string session)
         {
-            return _messageDal.FilterList(x => x.IsSpam == true);
+            return _messageDal.FilterList(x => x.IsSpam == true && x.ReceiverMail==session);
         }
 
         public List<Message> GetListTrash()
@@ -53,19 +53,19 @@ namespace BusinessLayer.Concrete
             return _messageDal.FilterList(x => x.Trash == true);
         }
 
-        public List<Message> GetReadList()
+        public List<Message> GetReadList(string session)
         {
-            return _messageDal.FilterList(x => x.IsRead == true && x.ReceiverMail == "ilkaygl@outlook.com");
+            return _messageDal.FilterList(x => x.IsRead == true && x.ReceiverMail == session);
         }
 
-        public List<Message> GetUnReadList()
+        public List<Message> GetUnReadList(string session)
         {
-            return _messageDal.FilterList(x => x.ReceiverMail == "ilkaygl@outlook.com" && x.IsRead == false);
+            return _messageDal.FilterList(x => x.ReceiverMail == session && x.IsRead == false);
         }
 
-        public List<Message> IsDraft()
+        public List<Message> IsDraft(string session)
         {
-            return _messageDal.FilterList(x => x.IsDraft == true);
+            return _messageDal.FilterList(x => x.IsDraft == true && x.SenderMail == session);
         }
 
         public void MessageAddBL(Message message)

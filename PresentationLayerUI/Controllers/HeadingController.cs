@@ -20,6 +20,13 @@ namespace PresentationLayerUI.Controllers
             return View(headingvalues);
         }
 
+        public ActionResult HeadingReport()
+        {
+            var headingvalues = hm.GetList();
+            return View(headingvalues);
+        }
+
+
         [HttpGet]
         public ActionResult AddHeading()
         {
@@ -66,6 +73,7 @@ namespace PresentationLayerUI.Controllers
         [HttpPost]
         public ActionResult EditHeading(Heading p)
         {
+            p.HeadingStatus = true;
             hm.HeadingUpdateBL(p);
             return RedirectToAction("Index");
         }

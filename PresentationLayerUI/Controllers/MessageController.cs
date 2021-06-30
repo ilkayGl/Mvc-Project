@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +19,18 @@ namespace PresentationLayerUI.Controllers
 
 
         // GET: Message
-        public ActionResult Inbox()
+        public ActionResult Inbox(int? page)
         {
-            var messagelistIn = mm.GetListInbox();
+            string session = (string)Session["AdminMail"];
+            var messagelistIn = mm.GetListInbox(session); //? işaretleri boş gelme/boş olma durumuna  
 
             return View(messagelistIn);
         }
 
         public ActionResult SendBox()
         {
-            var messageListSend = mm.GetListSendbox();
+            string session = (string)Session["AdminMail"];
+            var messageListSend = mm.GetListSendbox(session);
             return View(messageListSend);
         }
 
@@ -52,6 +55,7 @@ namespace PresentationLayerUI.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult NewMessage(Message message, string menuName)
         {
+            string session = (string)Session["AdminMail"];
             ValidationResult results = messageValidator.Validate(message);
 
             //Eğer kullanıcı Gönder tuşuna basarsa;
@@ -59,7 +63,7 @@ namespace PresentationLayerUI.Controllers
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "ilkaygl@outlook.com";
+                    message.SenderMail = session; //admin
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString()); //şuanın tarihini al
                     mm.MessageAddBL(message);
                     return RedirectToAction("SendBox", "WriterPanelMessage");
@@ -77,7 +81,7 @@ namespace PresentationLayerUI.Controllers
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "ilkaygl@outlook.com";
+                    message.SenderMail = session;
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     mm.MessageAddBL(message);
@@ -116,7 +120,8 @@ namespace PresentationLayerUI.Controllers
 
         public ActionResult DraftMessages()
         {
-            var result = mm.IsDraft();
+            string session = (string)Session["AdminMail"];
+            var result = mm.IsDraft(session);
             return View(result);
         }
 

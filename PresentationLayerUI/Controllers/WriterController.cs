@@ -46,8 +46,8 @@ namespace PresentationLayerUI.Controllers
                     Request.Files[0].SaveAs(Server.MapPath(url));
                     writer.WriterImage = "/Images/" + _filename;
                 }
-               
-                wm.WriterAddBL(writer);  
+                writer.WriterStatus = true;
+                wm.WriterAddBL(writer);
                 return RedirectToAction("Index");
             }
             else
@@ -82,6 +82,7 @@ namespace PresentationLayerUI.Controllers
                     Request.Files[0].SaveAs(Server.MapPath(url));
                     p.WriterImage = "/Images/" + _filename;
                 }
+                p.WriterStatus = true;
                 wm.WriterUpdateBL(p);
                 return RedirectToAction("Index");
             }

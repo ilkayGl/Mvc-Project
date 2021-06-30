@@ -1,7 +1,9 @@
-﻿using DataAccessLayer.Concrete.EntityFramework;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 
@@ -9,6 +11,9 @@ namespace PresentationLayerUI.Roles
 {
     public class AdminRoleProvider : RoleProvider
     {
+        AdminManager adminManager = new AdminManager(new EfAdminDal());
+        //WriterManager writerManager = new WriterManager(new EfWriterDal());
+
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
@@ -38,9 +43,31 @@ namespace PresentationLayerUI.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            MvcKampContext c = new MvcKampContext();
-            var x = c.Admins.FirstOrDefault(y => y.AdminUserName == username);
-            return new string[] { x.AdminRole };
+
+            using (var crypto = new System.Security.Cryptography.HMACSHA512())
+            {
+                var mailCrypto = crypto.ComputeHash(Encoding.UTF8.GetBytes(username));
+                var admin = adminManager.GetList();
+                //var writer = writerManager.GetList();
+
+                if (admin != null)
+                {
+                    foreach (var item in admin)
+                    {
+                        for (int i = 0; i < mailCrypto.Length; i++)
+                        {
+                            if (mailCrypto[i] == item.AdminMail[i])
+                            {
+                                return new string[] { item.AdminRole };
+                            }
+                        }
+                    }
+                }
+
+                return new string[] { };
+
+            }
+
         }
 
         public override string[] GetUsersInRole(string roleName)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Dto
 {
-    public class LoginDto : IEntity
+    public class AdminLogInDto : IEntity
     {
         public string AdminUserName { get; set; }
 

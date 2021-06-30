@@ -21,15 +21,15 @@ namespace BusinessLayer.Concrete
             //_writerService = writerService;
         }
 
-        public bool Login(LoginDto loginDto)
+        public bool AdminLogIn(AdminLogInDto adminLogInDto)
         {
             using (var crypto = new System.Security.Cryptography.HMACSHA512())
             {
-                var mailHash = crypto.ComputeHash(Encoding.UTF8.GetBytes(loginDto.AdminMail));
+                var mailHash = crypto.ComputeHash(Encoding.UTF8.GetBytes(adminLogInDto.AdminMail));
                 var admin = _adminService.GetList();
                 foreach (var item in admin)
                 {
-                    if (HashingHelper.VerifyPasswordHash(loginDto.AdminMail, loginDto.AdminPassword, item.AdminMail,
+                    if (HashingHelper.AdminVerifyPasswordHash(adminLogInDto.AdminMail, adminLogInDto.AdminPassword, item.AdminMail,
                         item.AdminPasswordHash, item.AdminPasswordSalt))
                     {
                         return true;
@@ -39,10 +39,10 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void Register(string adminUserName, string adminMail, string password)
+        public void AdminRegister(string adminUserName, string adminMail, string password)
         {
             byte[] mailHash, passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(adminMail, password, out mailHash, out passwordHash, out passwordSalt);
+            HashingHelper.AdminCreatePasswordHash(adminMail, password, out mailHash, out passwordHash, out passwordSalt);
             var admin = new Admin
             {
                 AdminUserName = adminUserName,

@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using System.IO;
+using BusinessLayer.ValidationRules;
 
 namespace PresentationLayerUI.Controllers.WriterPanelC
 {
@@ -15,10 +20,44 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
         MvcKampContext c = new MvcKampContext();
+        WriterValidator witerValidator = new WriterValidator();
 
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id = 0)
         {
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+
+            var writervalue = wm.GetByID(id);
+            return View(writervalue);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            ValidationResult results = witerValidator.Validate(p);
+            if (results.IsValid)
+            {
+                if (Request.Files.Count > 0)
+                {
+                    string fileName = Path.GetFileName(Request.Files[0].FileName);
+                    string _filename = DateTime.Now.ToString("yyymmdd") + fileName;
+                    string url = "~/Images/" + _filename;
+                    Request.Files[0].SaveAs(Server.MapPath(url));
+                    p.WriterImage = "/Images/" + _filename;
+                }
+                p.WriterStatus = true;
+                wm.WriterUpdateBL(p);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage); //ilgili nesnenin adı ve ilgili neseye ait hata mesajını döndür.
+                }
+            }
             return View();
         }
 
@@ -86,6 +125,12 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
             HeadingValue.HeadingStatus = false; //statusu false çevirerek silmeden etkisiz hale getirmiş olur manager kısmındada update işlemi olur.
             hm.HeadingDeleteBL(HeadingValue);
             return RedirectToAction("MyHeading");
+        }
+
+        public ActionResult AllHeading(int? p = 1) //sayfalama işleminin kaçtan başlayacağına karar verilir.
+        {
+            var headings = hm.GetList().ToPagedList((int)p, 2);
+            return View(headings);
         }
     }
 }
