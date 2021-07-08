@@ -1,11 +1,11 @@
-﻿
+﻿@model EntityLayer.Dto.WriterLogInDto
 @{
     Layout = null;
 }
 
 
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
     <title>Yazar Giriş Ekranı</title>
     <meta charset="utf-8">
@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
                         <h3 class="mb-4 text-center">Bir hesabınız var mı?</h3>
-                        @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
+                        @using (Html.BeginForm("WriterLogIn", "LogIn", FormMethod.Post))
                         {
                             <div class="form-group">
                                 <input type="text" name="WriterMail" class="form-control" placeholder="E-Mail" required>

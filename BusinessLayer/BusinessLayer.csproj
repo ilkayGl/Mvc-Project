@@ -90,6 +90,7 @@
     <Compile Include="Utilities\Results\Concrete\SuccessResult.cs" />
     <Compile Include="ValidationRules\CategoryValidator.cs" />
     <Compile Include="ValidationRules\ContactValidator.cs" />
+    <Compile Include="ValidationRules\GalleryValidator.cs" />
     <Compile Include="ValidationRules\MessageValidator.cs" />
     <Compile Include="ValidationRules\WriterValidator.cs" />
   </ItemGroup>

@@ -4,10 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div>
-    <h1>Yazar Güncelleme Sayfası</h1>
-</div>
-<div style="margin-left:5rem;margin-top:5rem">
+<div style="margin-left:5rem;margin-top:0rem">
+    <img src="@Model.WriterImage" height="130" width="130" class="img-circle" alt="Profil Resmi" />
 
     @using (Html.BeginForm("EditWrite", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
@@ -42,11 +40,16 @@
             @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control", @style = "width:20rem" })
             @Html.ValidationMessageFor(x => x.WriterPassword)
             <br />
-            @Html.Label("Yazarın Görseli")
-            <input type="file" name="WriterImage" class="btn btn-outline-primary" />
-            <br />
-            <button class="btn btn-success toastrBtn3">Güncelle</button>
+            <div class="custom-file" style="width:20rem">
+                <input type="file" name="WriterImage" class="custom-file-input" id="customFile">
+                <label class="custom-file-label " for="customFileLang">Resim Seçiniz</label>
+            </div>
+            @*@Html.Label("Yazarın Görseli")
+                <input type="file" name="WriterImage" class="btn btn-outline-primary" />
+                <br />*@
+
         </div>
+        <button class="btn btn-success toastrBtn3">Güncelle</button>
 
     }
 </div>

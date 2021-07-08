@@ -4,9 +4,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div>
+<div style="margin-left:5rem">
     <h1>Yeni Başlık Ekleme Sayfası</h1>
 </div>
+
 <div style="margin-left:5rem;margin-top:5rem">
 
     @using (Html.BeginForm("AddHeading", "Heading", FormMethod.Post))
@@ -17,7 +18,7 @@
             @Html.ValidationMessageFor(x => x.HeadingName)
             <br />
             @Html.Label("Kategori")
-            @Html.DropDownListFor(x => x.CategoryID,(List<SelectListItem>)ViewBag.vlc, new { @class = "form-control", @style = "width:20rem" })
+            @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control", @style = "width:20rem" })
             @Html.ValidationMessageFor(x => x.CategoryID)
             <br />
             @Html.Label("Yazar")

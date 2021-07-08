@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div>
+<div style="margin-left:5rem">
     <h1>Yeni Yazar Ekleme Sayfası</h1>
 </div>
 <div style="margin-left:5rem;margin-top:5rem">
@@ -36,10 +36,11 @@
             @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control", @style = "width:20rem" })
             @Html.ValidationMessageFor(x => x.WriterPassword)
             <br />
-            @Html.Label("Yazarın Görseli")
-            <input type="file"  name="WriterImage" class="btn btn-outline-primary" />
-            <br />
-            <button class="btn btn-success toastrBtn3">Kaydet</button>
+            <div class="custom-file" style="width:20rem">
+                <input type="file" name="WriterImage" class="custom-file-input" id="customFile">
+                <label class="custom-file-label " for="customFileLang">Resim Seçiniz</label>
+            </div>
         </div>
+        <button class="btn btn-success toastrBtn3">Kaydet</button>
     }
 </div>

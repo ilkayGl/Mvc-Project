@@ -1,7 +1,7 @@
-﻿
-@{ Layout = null; }
+﻿@{ Layout = null; }
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,10 @@
                             <img src="" class="img-circle elevation-2" alt="User Image">
                         </div>*@
                     <div class="info">
-                        <a href="#" class="d-block">İlkay Gül</a>
+                        <a href="#" class="d-block"><h2>Hoş Geldiniz...</h2> </a>
+                        <h4 class="d-block" style="color:aliceblue">
+                            @DateTime.Now.ToString("dd-MMMM-yyyy")
+                        </h4>
                     </div>
                 </div>
 
@@ -57,7 +60,7 @@
 
                         <li class="nav-item has-treeview">
                             <a href="/WriterPanel/WriterProfile" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Profilim
 
@@ -94,7 +97,7 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="/WriterPanelContent/MyContent" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-feather-alt"></i>
                                 <p>
                                     Yazılarım
                                 </p>
@@ -169,3 +172,4 @@
     </script>
 </body>
 </html>
+

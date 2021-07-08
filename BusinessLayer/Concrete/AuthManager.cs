@@ -13,12 +13,15 @@ namespace BusinessLayer.Concrete
     public class AuthManager : IAuthService
     {
         IAdminService _adminService;
-        // IWriterService _writerService;
+        IWriterService _writerService;
 
-        public AuthManager(IAdminService adminService) //,IWriterService writerService
+
+        ////////// Admin ////////
+
+        public AuthManager(IAdminService adminService, IWriterService writerService)
         {
             _adminService = adminService;
-            //_writerService = writerService;
+            _writerService = writerService;
         }
 
         public bool AdminLogIn(AdminLogInDto adminLogInDto)
@@ -52,6 +55,33 @@ namespace BusinessLayer.Concrete
                 AdminRole = "A"
             };
             _adminService.AdminAddBL(admin);
+        }
+
+
+        //////// Writer ////////
+
+        public bool WriterLogIn(WriterLogInDto writerLogInDto)
+        {
+            _writerService.GetList();
+            return false;
+        }
+
+        public void WriterRegister(string writerName, string writerSurname, string writerAbout, string Title, string writerMail, string writerPassword, bool writerStatus)
+        {
+            //byte[] mailHash, passwordHash, passwordSalt;
+            //HashingHelper.WriterCreatePasswordHash(password, out passwordHash, out passwordSalt);
+            var writer = new Writer
+            {
+                WriterName = writerName,
+                WriterSurname = writerSurname,
+                WriterAbout = writerAbout,
+                Title = Title,
+                //WriterImage = writerImage,
+                WriterMail = writerMail,
+                WriterPassword = writerPassword,
+                WriterStatus = writerStatus
+            };
+            _writerService.WriterAddBL(writer);
         }
     }
 }

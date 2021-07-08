@@ -63,8 +63,9 @@
                     @*<div class="image">
                             <img src="" class="img-circle elevation-2" alt="User Image">
                         </div>*@
-                    <div class="info">
+                    <div class="info" style="color:aliceblue">
                         <a href="#" class="d-block">İlkay Gül</a>
+                        @DateTime.Now.ToString("dd-MMMM-yyyy")
                     </div>
                 </div>
 
@@ -72,7 +73,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         @*@if (User.IsInRole("B"))
-                            {*@
+        {*@
                         <li class="nav-item has-treeview">
                             <a href="/AdminCategory/Index" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -104,7 +105,7 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="/Writer/Index" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                                <i class="nav-icon fas fa-feather-alt"></i>
                                 <p>
                                     Yazarlar
                                 </p>
@@ -130,21 +131,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/Chart/CategoryPieChart" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 1</p>
+                                        <p>Kategori-Başlık Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/Chart/WriterColumnChart" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 2</p>
+                                        <p>Yazar-Başlık Sütun Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/Chart/TalentLineChart" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 3</p>
+                                        <p>Yetenek-Oran Çizgi Grafiği</p>
                                     </a>
                                 </li>
                             </ul>
@@ -159,9 +160,17 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="/Heading/HeadingReport" class="nav-link">
-                                <i class="nav-icon fas fa-bars"></i>
+                                <i class="nav-icon fas fa-file-archive"></i>
                                 <p>
                                     Raporlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Calender/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    Schedule (Takvim Sayfası)
                                 </p>
                             </a>
                         </li>

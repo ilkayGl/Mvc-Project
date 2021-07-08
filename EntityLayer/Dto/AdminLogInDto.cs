@@ -9,6 +9,7 @@ namespace EntityLayer.Dto
 {
     public class AdminLogInDto : IEntity
     {
+
         public string AdminUserName { get; set; }
 
         public string AdminMail { get; set; }

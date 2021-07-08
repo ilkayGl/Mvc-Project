@@ -1,0 +1,41 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <h1>Yeni Admin Ekleme Sayfası</h1>
+</div>
+<div style="margin-left:5rem;margin-top:5rem">
+
+    @using (Html.BeginForm("AddAdmin", "Authorization", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.Label("Admin Adı")
+        @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminUserName)
+        <br /> <br />
+        @Html.Label("Admin Mail")
+        @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminMail)
+        <br /> <br />
+        @Html.Label("Admin Şifre")
+        @Html.TextBoxFor(x => x.AdminPasswordHash, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminPasswordHash)
+        <br /> <br />
+        @Html.Label("Admin Şifre Tekrar gir")
+        @Html.TextBoxFor(x => x.AdminPasswordSalt, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminPasswordSalt)
+        <br /> <br />
+        @Html.Label("Admin Role")
+        @Html.TextBoxFor(x => x.AdminRole, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminPasswordHash)
+        <br /> <br />
+
+        <br />
+        <button class="btn btn-success toastrBtn3">Kaydet</button>
+    </div>}
+</div>
+

@@ -12,7 +12,7 @@ namespace PresentationLayerUI.Roles
     public class AdminRoleProvider : RoleProvider
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal());
-        //WriterManager writerManager = new WriterManager(new EfWriterDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -48,7 +48,7 @@ namespace PresentationLayerUI.Roles
             {
                 var mailCrypto = crypto.ComputeHash(Encoding.UTF8.GetBytes(username));
                 var admin = adminManager.GetList();
-                //var writer = writerManager.GetList();
+                var writer = writerManager.GetList();
 
                 if (admin != null)
                 {

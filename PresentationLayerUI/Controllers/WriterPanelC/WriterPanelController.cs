@@ -49,7 +49,7 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
                 }
                 p.WriterStatus = true;
                 wm.WriterUpdateBL(p);
-                return RedirectToAction("AllHeading", "WriterPanel");
+                return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else
             {

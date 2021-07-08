@@ -3,15 +3,13 @@
 @{ ViewBag.Title = "WriterProfile";
     Layout = "~/Views/Shared/_WriterLayout.cshtml"; }
 
-<div>
-    <h1>Profilinizi Düzenleyin</h1>
-</div>
-<div style="margin-left:2rem;margin-top:2rem">
+<div style="margin-left:3rem;margin-top:0rem">
+
+    <img src="@Model.WriterImage" width="150" height="150" class="img-circle" alt="Profil Resmi" />
 
     @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
     {
-
         <div class="form-group">
             @*@Html.Label("Yazarın ID")*@
             @Html.HiddenFor(x => x.WriterID, new { @class = "form-control disabled", @style = "width:20rem", @readonly = true })
@@ -38,12 +36,16 @@
             @Html.ValidationMessageFor(x => x.Title)
             <br />
             @Html.Label("Yazarın Şifresi")
-            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control", @style = "width:20rem" })
+            @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control ", @style = "width:20rem" })
             @Html.ValidationMessageFor(x => x.WriterPassword)
             <br />
-            @Html.Label("Yazarın Görseli")
-            <input type="file" name="WriterImage" class="btn btn-outline-success" />
+            <div class="custom-file" style="width:20rem">
+                <input type="file" name="WriterImage" class="custom-file-input" id="customFile">
+                <label class="custom-file-label " for="customFileLang">Resim Seçiniz</label>
+            </div>
             <br />
-            <button class="btn btn-success toastrBtn3">Güncelle</button>
-        </div>}
+        </div>
+        <button class="btn btn-success toastrBtn3">Güncelle</button>
+    }
 </div>
+

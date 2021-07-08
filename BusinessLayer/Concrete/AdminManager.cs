@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,5 +43,7 @@ namespace BusinessLayer.Concrete
         {
             return _adminDal.List();
         }
+
+       
     }
 }

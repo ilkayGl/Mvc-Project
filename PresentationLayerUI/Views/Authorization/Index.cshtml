@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Kategori İşlemleri</h1>
+                    <h1>Admin Bilgileri</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -24,7 +24,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Kategori İşlemleri Veri Tablosu</h3>
+                <h3 class="card-title">Admin İşlemleri Veri Tablosu</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -42,7 +42,7 @@
                         <th>Kullanıcı Mail</th>
                         <th>Yetki</th>
                         <th>Status</th>
-                        <th>Pasif Yap</th>
+                        <th>Durum</th>
                         <th>Yetkisini Değiştir</th>
                     </tr>
                     @foreach (var item in Model)
@@ -64,5 +64,5 @@
         </div>
     </section>
 </body>
-<a href="#" class="btn btn-outline-info">Yeni Admin Tanımla</a>
+<a href="/Authorization/AddAdmin" class="btn btn-outline-info">Yeni Admin Tanımla</a>
 

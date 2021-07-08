@@ -20,8 +20,10 @@ namespace PresentationLayerUI.Controllers
     {
 
         // GET: Login
-        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()));
+        IAuthService authService = new AuthManager(new AdminManager(new EfAdminDal()), new WriterManager(new EfWriterDal()));
         WriterLoginManager wm = new WriterLoginManager(new EfWriterDal());
+
+
 
         [HttpGet]
         public ActionResult AdminLogin()
@@ -51,9 +53,9 @@ namespace PresentationLayerUI.Controllers
             else
             {
                 ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
-                return View();
+                return RedirectToAction("AdminLogin");
             }
-            
+
         }
 
         public ActionResult AdminLogOut()
@@ -64,18 +66,18 @@ namespace PresentationLayerUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult WriterLogin()
+        public ActionResult WriterLogIn()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult WriterLogin(Writer p)
+        public ActionResult WriterLogIn(Writer p)
         {
-            //MvcKampContext c = new MvcKampContext();
-            //var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            MvcKampContext c = new MvcKampContext();
+            var writeruserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
 
-            var writeruserinfo = wm.GetWriter(p.WriterMail, p.WriterPassword);
+            wm.GetWriter(p.WriterMail, p.WriterPassword);
 
             if (writeruserinfo != null)
             {
@@ -88,7 +90,10 @@ namespace PresentationLayerUI.Controllers
                 ViewData["ErrorMessage"] = "Kullanıcı adı veya Parola yanlış";
                 return View("WriterLogin");
             }
+
         }
+
+
 
         public ActionResult LogOut()
         {
