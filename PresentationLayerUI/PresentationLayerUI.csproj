@@ -2055,7 +2055,6 @@
     <Content Include="AdminLTE-3.0.4\web1\css\simpleLightbox.css" />
     <Content Include="AdminLTE-3.0.4\web1\css\snow.css" />
     <Content Include="AdminLTE-3.0.4\web1\css\style.css" />
-    <Content Include="AdminLTE-3.0.4\web1\images\banner.png" />
     <Content Include="AdminLTE-3.0.4\web1\images\close.png" />
     <Content Include="AdminLTE-3.0.4\web1\images\contact.jpg" />
     <Content Include="AdminLTE-3.0.4\web1\images\exp.jpg" />
@@ -2069,6 +2068,8 @@
     <Content Include="AdminLTE-3.0.4\web1\images\g8.jpg" />
     <Content Include="AdminLTE-3.0.4\web1\images\g9.jpg" />
     <Content Include="AdminLTE-3.0.4\web1\images\loader.gif" />
+    <Content Include="AdminLTE-3.0.4\web1\images\banner.mp4" />
+    <Content Include="AdminLTE-3.0.4\web1\images\mixkit-time-lapse-of-across-work-in-the-city-of-beijing-28609-medium.mp4" />
     <Content Include="AdminLTE-3.0.4\web1\images\move_up.png" />
     <Content Include="AdminLTE-3.0.4\web1\images\next.png" />
     <Content Include="AdminLTE-3.0.4\web1\images\prev.png" />
