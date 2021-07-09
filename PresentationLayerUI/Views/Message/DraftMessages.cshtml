@@ -67,17 +67,17 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                            <tr href="/Contact/GetContactDetails/@item.MessageID">
-                                <td>
-                                    <div class="icheck-primary"><input type="checkbox" value="" id="check1"><label for="check1"></label></div>
-                                </td>
-                                <td class="mailbox-star"><a href="/Message/GetDraftDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
-                                <td class="mailbox-name"><a href="/Message/GetDraftDetails/@item.MessageID">@item.ReceiverMail</a></td>
-                                <td class="mailbox-subject"><b>@item.Subject</b> - @item.MessageContent</td>
-                                <td class="mailbox-attachment"></td>
-                                <td class="mailbox-date"><b>@(((DateTime) item.MessageDate).ToString("dd-MMM-yyyy"))</b></td>
-                            </tr>
-}
+                                            <tr href="/Contact/GetContactDetails/@item.MessageID">
+                                                <td>
+                                                    <div class="icheck-primary"><input type="checkbox" value="" id="check1"><label for="check1"></label></div>
+                                                </td>
+                                                <td class="mailbox-star"><a href="/Message/GetDraftDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
+                                                <td class="mailbox-name"><a href="/Message/GetDraftDetails/@item.MessageID">@item.ReceiverMail</a></td>
+                                                <td class="mailbox-subject"><b>@item.Subject</b> - @item.MessageContent</td>
+                                                <td class="mailbox-attachment"></td>
+                                                <td class="mailbox-date"><b>@(((DateTime) item.MessageDate).ToString("dd-MMM-yyyy"))</b></td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>

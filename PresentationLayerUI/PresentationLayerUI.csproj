@@ -144,6 +144,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
@@ -2112,6 +2113,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ProjectImages\1.png" />
+    <Content Include="ProjectImages\1620139567131.jpg" />
     <Content Include="ProjectImages\2.png" />
     <Content Include="ProjectImages\3.png" />
     <Content Include="ProjectImages\4.png" />
@@ -2688,6 +2690,9 @@
     <Content Include="Views\Chart\TalentLineChart.cshtml" />
     <Content Include="Views\Calender\Index.cshtml" />
     <Content Include="Views\Gallery\AddImage.cshtml" />
+    <Content Include="Views\Ability\Index.cshtml" />
+    <Content Include="Views\Ability\AbilityList.cshtml" />
+    <Content Include="Views\Ability\AbilityAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,85 @@
+﻿@using EntityLayer.Concrete
+@model List<Ability>
+@{ ViewBag.Title = "AbilityList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Yetenek Tablosu</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yetenek İşlemleri Veri Tablosu</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="" data-toggle="tooltip" title="">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Yetenek Adı</th>
+                        <th>Yüzdesi</th>
+                        <th>Durumu</th>
+                        <th>Sil</th>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <th>@x.AbilityID</th>
+                            <th>@x.AbilityName</th>
+                            <th>@x.AbilityCount</th>
+                            <th>@x.AbilityStatus</th>
+                            <th><a href="/Ability/AbilityDelete/@x.AbilityID" class="btn btn-danger toastrBtn2">Sil</a></th>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+<a href="/Ability/AbilityAdd" class="btn btn-success">Yeni Yetenek Ekle</a>
+
+
+
+@*<br />
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Yetenek Adı</th>
+            <th>Yüzdesi</th>
+            <th>Durumu</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <th>@x.AbilityID</th>
+                <th>@x.AbilityName</th>
+                <th>@x.AbilityCount</th>
+                <th>@x.AbilityStatus</th>
+                <th><a href="/Ability/AbilityDelete/@x.AbilityID" class="btn btn-danger toastrBtn2">Sil</a></th>
+            </tr>
+        }
+
+    </table>
+    <a href="/Ability/AbilityAdd" class="btn btn-success">Yeni Yetenek Ekle</a>
+    <br />
+    <br />*@

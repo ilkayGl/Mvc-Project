@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Ability
+@{
+    ViewBag.Title = "AbilityAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="margin-left:5rem">
+    <h1>Yeni Yetenek Ekleme Sayfası</h1>
+</div>
+
+<div style="margin-left:5rem;margin-top:5rem">
+    @using (Html.BeginForm("AbilityAdd", "Ability", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Yetenek Adı")
+            @Html.TextBoxFor(x => x.AbilityName, new { @class = "form-control", @style = "width:20rem" })
+            <br />
+            <br />
+            @Html.Label("Yüzde")
+            @Html.TextAreaFor(x => x.AbilityCount, new { @class = "form-control", @style = "width:20rem" })
+
+            <br />
+            @Html.Label("Durum")
+            @Html.TextAreaFor(x => x.AbilityStatus, new { @class = "form-control", @style = "width:20rem" })
+
+            <br />
+            <button class="btn btn-success toastrBtn3">Ekle</button>
+        </div>
+    }
+
+</div>

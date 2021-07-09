@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAbilityDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAbilityDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
@@ -90,6 +92,10 @@
     <Compile Include="Migrations\202107081215420_mig_galleryadd.designer.cs">
       <DependentUpon>202107081215420_mig_galleryadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107091319371_mig_abilityadd.cs" />
+    <Compile Include="Migrations\202107091319371_mig_abilityadd.designer.cs">
+      <DependentUpon>202107091319371_mig_abilityadd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107081215420_mig_galleryadd.resx">
       <DependentUpon>202107081215420_mig_galleryadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107091319371_mig_abilityadd.resx">
+      <DependentUpon>202107091319371_mig_abilityadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

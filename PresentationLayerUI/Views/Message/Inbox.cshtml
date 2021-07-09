@@ -81,27 +81,31 @@
                                     {
                                         read = (!item.IsRead) ? "warning" : "capitalize";
                                         important = (!item.IsImportant) ? "body" : "warning";
-                        <tr>
-                            <td>
-                                <div class="icheck-primary">
-                                    <input type="checkbox" value="" id="check1">
-                                    <label for="check1"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a class="btn btn-default btn-sm" href="/Message/IsRead/@item.MessageID">
-                                    <i class="fas fa-mail-bulk text-@read"></i>
-                                </a>
-                            </td>
-                            <td class="mailbox-star"><a href="/Message/IsImportant/@item.MessageID"><i class="fas fa-star text-@important"></i>
-                                 </a></td>
-                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageID">@item.SenderMail</a></td>
-                            <td class="mailbox-subject">
-                                <b>@item.Subject</b> - @item.MessageContent
-                            </td>
-                            <td class="mailbox-attachment"></td>
-                            <td class="mailbox-date">@(((DateTime)item.MessageDate).ToString("dd-MMMM-yyyy"))</td>
-                        </tr>}
+                                        <tr>
+                                            <td>
+                                                <div class="icheck-primary">
+                                                    <input type="checkbox" value="" id="check1">
+                                                    <label for="check1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-default btn-sm" href="/Message/IsRead/@item.MessageID">
+                                                    <i class="fas fa-mail-bulk text-@read"></i>
+                                                </a>
+                                            </td>
+                                            <td class="mailbox-star">
+                                                <a href="/Message/IsImportant/@item.MessageID">
+                                                    <i class="fas fa-star text-@important"></i>
+                                                </a>
+                                            </td>
+                                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@item.MessageID">@item.SenderMail</a></td>
+                                            <td class="mailbox-subject">
+                                                <b>@item.Subject</b> - @item.MessageContent
+                                            </td>
+                                            <td class="mailbox-attachment"></td>
+                                            <td class="mailbox-date">@(((DateTime)item.MessageDate).ToString("dd-MMMM-yyyy"))</td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                             <!-- /.table -->
