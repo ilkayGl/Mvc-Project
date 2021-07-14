@@ -53,8 +53,28 @@ namespace PresentationLayerUI.Controllers.WriterPanelC
             var spamMail = mm.GetListSpam(session).Count();
             ViewBag.spamMail = spamMail;
 
+
+           
+
             return PartialView();
         }
+
+
+        public PartialViewResult PartialMessageList()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialMessageListFooter()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialMessageListFooterButton()
+        {
+            return PartialView();
+        }
+
 
         public ActionResult SendBox()
         {

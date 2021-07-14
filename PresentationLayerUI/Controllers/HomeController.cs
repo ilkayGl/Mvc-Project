@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PresentationLayerUI.Controllers
 {
-    [AllowAnonymous]
+    
     public class HomeController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
@@ -33,7 +33,7 @@ namespace PresentationLayerUI.Controllers
             return View();
         }
 
-        
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult HomePage()
         {       
@@ -54,7 +54,7 @@ namespace PresentationLayerUI.Controllers
 
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult HomePage(Contact p)
         {

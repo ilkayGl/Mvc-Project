@@ -52,7 +52,7 @@
                                     <span class="mailbox-read-time float-right">@(((DateTime)Model.MessageDate).ToString("dd-MMMMM-yyyy"))</span>
                                 </h6>
                             </div>
-                            
+
                             <div class="mailbox-read-message">
                                 <p>
                                     @Model.MessageContent
@@ -62,7 +62,7 @@
                             </div>
                             <!-- /.mailbox-read-message -->
                         </div>
-
+                        @Html.Action("PartialMessageListFooterButton", "Contact")
                         <!-- /.card-footer -->
                     </div>
                     <!-- /.card -->

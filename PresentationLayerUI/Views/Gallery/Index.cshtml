@@ -15,15 +15,6 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">-->
-    <!-- Ekko Lightbox -->
-    <!--<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.css">-->
-    <!-- Ionicons -->
-    <!--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">-->
-    <!-- Theme style -->
-    <!--<link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">-->
-    <!-- Google Font: Source Sans Pro -->
-    <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">-->
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -62,55 +53,64 @@
                                     <div class="col-sm-2">
                                         <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
                                             <img src="@item.ImagePath" class="img-fluid mb-2" alt="Görsel" style="width:15rem; height:15rem" />
+
                                         </a>
+
+                                        <div>
+                                            <a href="/Gallery/UpdateImage/@item.ImageID" class="btn btn-success">Güncelle</a>
+                                            <a href="/Gallery/DeleteImage/@item.ImageID" class="btn btn-danger">Sil</a>
+                                        </div>
+
                                     </div>
+                                   
                                 }
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
 
 
-        <a href="/Gallery/AddImage" class="btn btn-success ">Resim Ekle</a>
+        <a href="/Gallery/AddImage" class="btn btn-info ">Resim Ekle</a>
 
 
     </section>
 
 
 
-    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 
-    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    @*<script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>*@
-
-    <script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-    @*<script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
-
-        <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>*@
-
-    <script src="~/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
-
-    <script>
-        $(function () {
-            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-                event.preventDefault();
-                $(this).ekkoLightbox({
-                    alwaysShowClose: true
-                });
-            });
-
-            $('.filter-container').filterizr({ gutterPixels: 3 });
-            $('.btn[data-filter]').on('click', function () {
-                $('.btn[data-filter]').removeClass('active');
-                $(this).addClass('active');
-            });
-        })
-    </script>
 
 
 </body>
 </html>
 
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 
+<script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+@*<script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>*@
+
+<script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+@*<script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>*@
+
+<script src="~/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
+
+<script>
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+
+        $('.filter-container').filterizr({ gutterPixels: 3 });
+        $('.btn[data-filter]').on('click', function () {
+            $('.btn[data-filter]').removeClass('active');
+            $(this).addClass('active');
+        });
+    })
+</script>

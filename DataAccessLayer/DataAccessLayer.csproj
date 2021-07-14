@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202107091319371_mig_abilityadd.designer.cs">
       <DependentUpon>202107091319371_mig_abilityadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107140800505_mig_updatedd.cs" />
+    <Compile Include="Migrations\202107140800505_mig_updatedd.designer.cs">
+      <DependentUpon>202107140800505_mig_updatedd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107091319371_mig_abilityadd.resx">
       <DependentUpon>202107091319371_mig_abilityadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107140800505_mig_updatedd.resx">
+      <DependentUpon>202107140800505_mig_updatedd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,41 +37,46 @@
                         <div class="card-header">
                             <h3 class="card-title">Mesajı Oku</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="Mail Kutusunda Ara">
+                                    <div class="input-group-append">
+                                        <div class="btn btn-primary"><i class="fas fa-search"></i></div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <div class="mailbox-read-info">
+                                    <br />
+                                    <h5>Konu: @Model.Subject </h5>
+                                    <br />
+                                    <h6>
+                                        Alıcı: @Model.ReceiverMail
+                                        <span class="mailbox-read-time float-right">@(((DateTime)Model.MessageDate).ToString("dd-MMMMM-yyyy"))</span>
+                                    </h6>
+                                </div>
+
+                                <div class="mailbox-read-message">
+                                    <p>
+                                        @Model.MessageContent
+                                    </p>
+                                    <br />
+                                    <p>Alıcı,<br>@Model.ReceiverMail</p>
+                                </div>
+                                <!-- /.mailbox-read-message -->
+                            </div>
+
+                            <!-- /.card-footer -->
                         </div>
-
-                        <!-- /.card-header -->
-                        <div class="card-body p-0">
-                            <div class="mailbox-read-info">
-                                <h5>Konu:@Model.Subject </h5>
-                                <br />
-                                <h6>
-                                    Alıcı: @Model.ReceiverMail
-                                    <span class="mailbox-read-time float-right">@(((DateTime)Model.MessageDate).ToString("dd-MMMMM-yyyy"))</span>
-                                </h6>
-                            </div>
-
-                            <div class="mailbox-read-message">
-                                <p>
-                                    @Model.MessageContent
-                                </p>
-                                <br />
-                                <p>Alıcı,<br>@Model.ReceiverMail</p>
-                            </div>
-                            <!-- /.mailbox-read-message -->
-                        </div>
-
-                        <!-- /.card-footer -->
+                        @Html.Action("PartialMessageListFooterButton", "Contact")
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
-                </div>
 
-                <!-- /.col -->
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-        </div>
     </section>
 </body>
 </html>

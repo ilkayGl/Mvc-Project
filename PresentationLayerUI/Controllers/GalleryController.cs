@@ -45,7 +45,7 @@ namespace PresentationLayerUI.Controllers
                 }
                 imageFile.ImageStatus = true;
                 IFM.ImageFileAddBL(imageFile);
-                return RedirectToAction("Index","Gallery");
+                return RedirectToAction("Index", "Gallery");
             }
             else
             {
@@ -56,5 +56,14 @@ namespace PresentationLayerUI.Controllers
             }
             return View();
         }
+
+        public ActionResult DeleteImage(int id)
+        {
+            var imageValues = IFM.GetByID(id);
+            IFM.ImageFileDeleteBL(imageValues);
+            return RedirectToAction("Index","Gallery");
+        }
+
+
     }
 }

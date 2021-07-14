@@ -20,6 +20,11 @@
                             {<!-- timeline time label -->
                                 <div class="time-label mt-2">
                                     <span class="bg-success ">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy"))</span>
+                                    <a class="btn btn-info btn-sm" href="/WriterPanelContent/AddContent/@item.HeadingID">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Bu Başlığa Yaz
+                                    </a>
                                 </div>
                                 <div>
                                     <a class="fas fa-comment bg-yellow" href="#"><i></i></a>

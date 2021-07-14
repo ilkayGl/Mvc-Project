@@ -62,6 +62,21 @@ namespace PresentationLayerUI.Controllers
             return PartialView();
         }
 
+        public PartialViewResult PartialMessageList()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialMessageListFooter()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialMessageListFooterButton()
+        {
+            return PartialView();
+        }
+
         public ActionResult IsRead(int id) //Bu alan sistem mesajlarindaki okundu butonundan gelen degeri DB yazar
         {
             var contactValue = cm.GetByID(id);

@@ -4,7 +4,7 @@
 @{ Layout = null; }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,35 +27,47 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-light navbar-light ">
+            <span class="nav-item" style="color:gray">
+                <a class="nav-link text-gray" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </span>
+            <a href="/Home/HomePage"  style="color:grey">
+                <i class="fas fa-home ml-1"></i>
+                <span class="brand-text font-weight-light "><i>AnaSayfa</i></span>
+            </a>
+        </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Başlıklar</span>
-            </a>
 
+            <a href="#" class="brand-link  ">
+                <i class="fas fa-cannabis ml-2 "></i>
+                <span class="brand-text font-weight-light "><b>BAŞLIKLAR</b></span>
+            </a>
+            <span class="brand-link">
+                <i class="far fa-clock ml-2"></i>
+                <span class="brand-text font-weight-light ">@DateTime.Now.ToString("dd-MMMM-yyyy")</span>
+
+            </span>
             <!-- Sidebar -->
-            <br />  
-            <div class="sidebar">
-                <div class="btn btn-outline-secondary    ">
-                    <div class="info">
-                        <a href="/Home/HomePage" class="text-center">AnaSayfa</a>
-                    </div>
-                </div>
-            <hr style="background-color: darkgrey" />
+            <br />
+
+            <div class="">
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     @foreach (var item in Model)
                     {
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                            <li class="nav-item">
-                                <a href="/Default/DefaultHeadings/@item.HeadingID" class="nav-link">
+                        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+
+                            <li class="nav-item ">
+
+                                <a href="/Default/DefaultHeadings/@item.HeadingID" class="nav-link ">
+                                    <i class="fas fa-comment"></i>
                                     <p>
-                                        @item.HeadingName
+                                        <i>@item.HeadingName</i>
                                     </p>
                                 </a>
                             </li>
@@ -71,11 +83,11 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-            @Html.Action("Index", "Default")
+
 
             <!-- Main content -->
             <div class="content ">
-
+                @Html.Action("Index", "Default")
                 @*@RenderBody()*@
                 <!-- /.container-fluid -->
             </div>
@@ -92,19 +104,10 @@
 
     <script type="text/javascript" src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
     <script type="text/javascript" src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
-    <script type="text/javascript" src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
-    <script type="text/javascript" src="~/Scripts/toastr.js"></script>
+    @*<script type="text/javascript" src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>*@
 
-    <script type="text/javascript">
-        $(".toastrBtn1").click(function () {
-            toastr.success("Başarıyla Güncellendi")
-        }),
-            $(".toastrBtn2").click(function () {
-                toastr.error(+"Başarıyla Silindi")
-            }),
-            $(".toastrBtn3").click(function () {
-                toastr.success("Kategori Eklendi")
-            });</script>
+
+
     <script type="text/javascript">jQuery.noConflict();</script>
 </body>
 </html>

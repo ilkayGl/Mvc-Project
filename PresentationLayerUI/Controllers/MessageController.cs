@@ -22,7 +22,7 @@ namespace PresentationLayerUI.Controllers
         public ActionResult Inbox(int? page)
         {
             string session = (string)Session["AdminMail"];
-            var messagelistIn = mm.GetListInbox(session); //? işaretleri boş gelme/boş olma durumuna  
+            var messagelistIn = mm.GetListInbox(session);  //? işaretleri boş gelme/boş olma durumuna  
 
             return View(messagelistIn);
         }
@@ -66,7 +66,7 @@ namespace PresentationLayerUI.Controllers
                     message.SenderMail = session; //admin
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString()); //şuanın tarihini al
                     mm.MessageAddBL(message);
-                    return RedirectToAction("SendBox", "WriterPanelMessage");
+                    return RedirectToAction("SendBox");
                 }
                 else
                 {

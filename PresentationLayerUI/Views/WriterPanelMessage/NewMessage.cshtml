@@ -1,8 +1,6 @@
 ﻿@model EntityLayer.Concrete.Message
-@{
-    ViewBag.Title = "NewMessage";
-    Layout = "~/Views/Shared/_WriterLayout.cshtml";
-}
+@{ ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml"; }
 
 
 <!DOCTYPE html>
@@ -75,16 +73,9 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer">
-                                <div class="float-right">
-                                    <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklar</button>
-                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
-                                </div>
-                                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal ET</button>
-                            </div>
+                            @Html.Action("PartialMessageListFooterButton", "WriterPanelMessage")
                             <!-- /.card-footer -->
-                        </div>
-                    }
+                        </div>}
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
@@ -94,9 +85,7 @@
     </section>
 
     <!-- jQuery -->
-    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.js">
-
-    </script>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->

@@ -1,8 +1,6 @@
 ﻿@model EntityLayer.Concrete.Message
-@{
-    ViewBag.Title = "NewMessage";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+@{ ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 
 
 <!DOCTYPE html>
@@ -76,16 +74,10 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer">
-                                <div class="float-right">
-                                    <button type="button" name="menuName" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklar</button>
-                                    <button type="submit" name="menuName" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
-                                </div>
-                                <button type="submit" name="menuName" value="cancel" class="btn btn-default"><i class="fas fa-times"></i> İptal ET
-                                </button>
-                                <button type="button" class="btn btn-warning"><i class="fas fa-print"></i> Yazdır</button>
-                            </div>
-                            <!-- /.card-footer -->
+
+                            <!-- card-footer -->
+                            @Html.Action("PartialMessageListFooterButton", "Contact")
+
                         </div>
                     }
                     <!-- /.card -->
@@ -97,9 +89,7 @@
     </section>
 
     <!-- jQuery -->
-    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.js">
-
-    </script>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->

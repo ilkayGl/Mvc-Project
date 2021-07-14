@@ -1,7 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Contact>
 @{ ViewBag.Title = "Index";
-                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
 
 @{ string read = ""; }
 @{ string important = ""; }
@@ -82,23 +82,30 @@
                                     {
                                         read = (!item.IsRead) ? "warning" : "capitalize";
                                         important = (!item.IsImportant) ? "body" : "warning";
-                        <tr>
-                            <td>
-                                <div class="icheck-primary">
-                                    <input type="checkbox" value="" id="check1">
-                                    <label for="check1"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a class="btn btn-default btn-sm" href="/Contact/IsRead/@item.ContactID"><i class="fas fa-mail-bulk text-@read"></i></a>
-                            </td>
-                            <td class="mailbox-star"><a href="/Contact/IsImportant/@item.ContactID"><i class="fas fa-star text-@important"></i></a></td>
+                                        <tr>
+                                            <td>
+                                                <div class="icheck-primary">
+                                                    <input type="checkbox" value="" id="check1">
+                                                    <label for="check1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-default btn-sm" href="/Contact/IsRead/@item.ContactID">
+                                                    <i class="fas fa-mail-bulk text-@read"></i>
+                                                </a>
+                                            </td>
+                                            <td class="mailbox-star">
+                                                <a href="/Contact/IsImportant/@item.ContactID">
+                                                    <i class="fas fa-star text-@important"></i>
+                                                </a>
+                                            </td>
 
-                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactID">@item.UserName</a></td>
-                            <td class="mailbox-subject"><b>@item.Subject</b> - @item.Message</td>
-                            <td class="mailbox-attachment"></td>
-                            <td class="mailbox-date"><b>@(((DateTime)item.ContactDate.Date).ToString("dd-MMMM-yyyy"))</b></td>
-                        </tr>}
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactID">@item.UserName</a></td>
+                                            <td class="mailbox-subject"><b>@item.Subject</b> - @item.Message</td>
+                                            <td class="mailbox-attachment"></td>
+                                            <td class="mailbox-date"><b>@(((DateTime)item.ContactDate.Date).ToString("dd-MMMM-yyyy"))</b></td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

@@ -17,7 +17,7 @@ namespace PresentationLayerUI.Controllers
             var deger1 = c.Categories.Count().ToString();
             ViewBag.dgr1 = deger1;
 
-            var deger2 = c.Headings.Count(x => x.HeadingName == "Yazılım").ToString();
+            var deger2 = c.Headings.Count(x => x.CategoryID == 1).ToString();
             ViewBag.dgr2 = deger2;
 
             var deger3 = (from x in c.Writers select x.WriterName.IndexOf("a")).Distinct().Count().ToString();
@@ -33,6 +33,7 @@ namespace PresentationLayerUI.Controllers
             var deger6 = c.Writers.Count().ToString();
             ViewBag.dgr6 = deger6;
 
+          
             return View();
 
         }
