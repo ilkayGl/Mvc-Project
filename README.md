@@ -10,5 +10,7 @@
   <img src="https://github.com/ilkayGl/Mvc-Project/blob/master/PresentationLayerUI/SS/7.png" alt="" border="0" width="500" height="400">
   <img src="https://github.com/ilkayGl/Mvc-Project/blob/master/PresentationLayerUI/SS/8.png" alt="" border="0" width="500" height="400">
   <img src="https://github.com/ilkayGl/Mvc-Project/blob/master/PresentationLayerUI/SS/9.png" alt="" border="0" width="500" height="400">
+  <img src="https://github.com/ilkayGl/Mvc-Project/blob/master/PresentationLayerUI/SS/Admin-Hashing.png" alt="" border="0" width="500" height="400">
+  <img src="https://github.com/ilkayGl/Mvc-Project/blob/master/PresentationLayerUI/SS/Yetenekler.png" alt="" border="0" width="500" height="400">
   
 
