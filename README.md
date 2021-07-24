@@ -1,5 +1,15 @@
 
 # Mvc-Project
+
+-Website Video : 
+https://www.linkedin.com/feed/update/urn:li:activity:6821415366565097472/
+
+
+-You can access the live demo here with the following information:
+http://adminpanel59-001-site1.btempurl.com
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------
 ##Project - DataBase
 
